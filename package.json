@@ -1,0 +1,14 @@
+{
+    "name": "tennisapi",
+    "version": "1.0.0",
+    "description": "Interface for extracting and analyzing professional tennis tournaments",
+    "main": "app.js",
+    "scripts": {
+        "test": "tsc app.ts"
+    },
+    "author": "Kasra Kamal",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
