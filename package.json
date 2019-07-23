@@ -4,11 +4,14 @@
     "description": "Interface for extracting and analyzing professional tennis tournaments",
     "main": "app.js",
     "scripts": {
-        "test": "tsc app.ts"
+        "build": "tsc app.ts",
+        "start": "node app.js"
     },
     "author": "Kasra Kamal",
     "license": "MIT",
     "dependencies": {
-        "express": "^4.17.1"
+        "cheerio": "^1.0.0-rc.3",
+        "express": "^4.17.1",
+        "axios": "0.14.0"
     }
 }

@@ -1,5 +1,6 @@
 node_modules
 package-lock.json
 
-# Transcompiled app.ts
+# Ignore .js files in ./ or ./server directories
 app.js
+server/*.js
