@@ -3,4 +3,5 @@ package-lock.json
 
 # Ignore .js files in ./ or ./server directories
 app.js
-server/*.js
+server/routes/index.js
+server/routes/rankings.js
