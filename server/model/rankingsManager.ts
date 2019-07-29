@@ -35,8 +35,13 @@ export class rankingsManager {
         });
     }
 
-    private extractRankingQuery(type: string, rankRange: rankRange): string {
-        return ATP_RANKINGS.concat(type);
+    private extractRankingQuery(type: string, rankRange?: rankRange): string {
+        let url_query: string = ATP_RANKINGS.concat(type);
+        if (rankRange) {
+            url_query.concat("?");
+            url_query.concat(`rankRange=${rankRange.topRank}-${rankRange.bottomRank}`);
+        }
+        return url_query;
     }
 
     private parseRankings($): IRanking[] {

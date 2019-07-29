@@ -1,6 +1,6 @@
 export class rankRange {
-    private _topRank;
-    private _bottomRank;
+    private _topRank: number;
+    private _bottomRank: number;
 
     constructor(topRank: number, bottonRank: number) {
         this._topRank = topRank;
