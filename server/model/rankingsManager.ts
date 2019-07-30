@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import * as axios from 'axios';
 import * as cheerio from 'cheerio';
-import { rankRange } from './util';
+import { RankRange } from './util';
+import { url } from 'inspector';
 
 // Format of individual ranking information
 interface IRanking {
@@ -22,8 +23,9 @@ export class rankingsManager {
         this._router = router;
     }
 
-    public extractRankings(type: string, rankRange?: rankRange) { 
-        const queryString: string = this.extractRankingQuery(type, rankRange);
+    public extractRankings(type: string, rankDate?: string, rankRange?: RankRange) { 
+        const queryString: string = this.extractRankingQuery(type, rankDate, rankRange);
+        console.log(queryString);
         axios.default.get(queryString).then((response) => {
             const $ = cheerio.load(response.data);
             const rankings = this.parseRankings($);
@@ -35,12 +37,19 @@ export class rankingsManager {
         });
     }
 
-    private extractRankingQuery(type: string, rankRange?: rankRange): string {
+    private extractRankingQuery(type: string, rankDate?: string, rankRange?: RankRange): string {
         let url_query: string = ATP_RANKINGS.concat(type);
-        if (rankRange) {
-            url_query.concat("?");
-            url_query.concat(`rankRange=${rankRange.topRank}-${rankRange.bottomRank}`);
-        }
+        url_query = rankDate || rankRange 
+                    ? url_query.concat("?") 
+                    : "";
+        url_query = rankDate
+                    ? url_query.concat(`rankDate=${rankDate}`) 
+                    : url_query;
+        url_query = rankRange
+                    ? rankDate
+                        ? url_query.concat("&").concat(`rankRange=${rankRange.topRank}-${rankRange.bottomRank}`) 
+                        : url_query.concat(`rankRange=${rankRange.topRank}-${rankRange.bottomRank}`) 
+                    : url_query;
         return url_query;
     }
 

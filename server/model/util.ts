@@ -1,4 +1,4 @@
-export class rankRange {
+export class RankRange {
     private _topRank: number;
     private _bottomRank: number;
 
