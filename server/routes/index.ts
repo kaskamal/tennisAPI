@@ -6,6 +6,7 @@ const router = express.Router();
 
 export default router;
 
+// Respond to root with home html page
 router.get("/", (req, res) => {
     const path = "public/html/index.html";
     fs.readFile(path, (err: Error, file: Buffer) => {
@@ -15,9 +16,8 @@ router.get("/", (req, res) => {
             res.write(file);
             res.end();
         }
-        
     });
-})
+});
 
 
 router.use("/", rankings);

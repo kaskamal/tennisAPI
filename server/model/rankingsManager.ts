@@ -2,7 +2,6 @@ import { Router } from 'express';
 import * as axios from 'axios';
 import * as cheerio from 'cheerio';
 import { RankRange } from './util';
-import { url } from 'inspector';
 
 // Format of individual ranking information
 interface IRanking {
@@ -14,6 +13,7 @@ interface IRanking {
     "tournaments_played": number
 }
 
+// URL to ATP rankings site
 const ATP_RANKINGS = 'https://www.atptour.com/en/rankings/';
 
 export class rankingsManager {
