@@ -1,7 +1,27 @@
+<!doctype html>
+
 <head>
+    <title>Tennis API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <h1>HELLO WORLD</h1>
+    <div class="d-flex justify-content-center align-items-center" style="height:100px;">
+        <form class="form-inline">
+            <select class="custom-select">
+                <option selected>Select game type</option>
+                <option value="1">Singles</option>
+                <option value="2">Doubles</option>
+            </select>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form>
+    </div>
 </body>
