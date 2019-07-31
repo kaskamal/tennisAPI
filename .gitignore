@@ -1,10 +1,6 @@
+# npm files
 node_modules
 package-lock.json
 
-# Ignore .js files in ./ or ./server directories
-app.js
-# server/routes/index.js
-# server/routes/rankings.js
-# server/model/rankingsManager.js
-# server/model/util.js
+# .js files in tsc out directory
 out/*
