@@ -4,7 +4,7 @@
     <title>Tennis API</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -16,12 +16,32 @@
                 <option value="2">Doubles</option>
             </select>
             <div class="col">
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" class="form-control" placeholder="Date">
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control" placeholder="Range">
             </div>
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            <button id="ranking-submit" type="submit" class="btn btn-primary mb-2">Submit</button>
         </form>
     </div>
+
+    <script>
+        $("#ranking-submit").click(function(e) {
+            const ranking_type = $('.custom-select').find(":selected").text();
+            const url = `rankings/${ranking_type.toLowerCase()}`
+            console.log(url);
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function(result) {
+                    alert('ok');
+                },
+                error: function(result) {
+                    alert('error');
+                }
+            });
+        });
+    </script>
+
+
 </body>
