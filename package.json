@@ -4,8 +4,7 @@
     "description": "Interface for extracting and analyzing professional tennis tournaments",
     "main": "app.js",
     "scripts": {
-        "build": "tsc app.ts",
-        "start": "node app.js"
+        "start": "tsc && node out/app.js"
     },
     "author": "Kasra Kamal",
     "license": "MIT",
