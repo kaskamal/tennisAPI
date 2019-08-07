@@ -28,11 +28,16 @@
     <script>
         $("#ranking-submit").click(function(e) {
             const ranking_type = $('.custom-select').find(":selected").text();
+            const date = $('.form-control[placeholder="Date"]').val()
+            const range = $('.form-control[placeholder="Range"]').val()
             const url = `rankings/${ranking_type.toLowerCase()}`
-            console.log(url);
             $.ajax({
                 type: "GET",
                 url: url,
+                data: {
+                    date: date,
+                    range: range
+                },
                 success: function(result) {
                     alert('ok');
                 },
